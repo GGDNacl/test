@@ -38,8 +38,8 @@ jobs:
         with:
           server_address: smtp.163.com
           server_port: 465
-          username : ${{secrets.MAIL_USERNAME}} 
-          password : ${{secrets.MAIL_PASSWORD}} 
+          username : ${{secrets.MAIL_PASSWORD.MAIL_USERNAME}} 
+          password : ${{secrets.MAIL_PASSWORD.MAIL_PASSWORD}} 
           subject: 打卡成功！
           to: 1079955876@qq.com
           from: clockin-bot

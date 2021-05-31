@@ -1,0 +1,44 @@
+name: test
+
+on:
+  push: 
+    branches: 
+      - master
+  schedule:
+    - cron: '0 2 * * *'
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows10
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: test
+        uses: actions/checkout@v2
+
+      - name: 'Set up python'
+        uses: actions/checkout@v1
+        with:
+          python-version: 3.7
+      
+      - name: 'Install B'
+        run: pip install beautifulsoup4
+        
+      - name: 'Install R'
+        run: pip install requests
+        
+      - name: 'Working'
+        run: python user.py
+        
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.163.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 打卡
+          to: 1049591043@qq.com
+          from: GitHub Actions

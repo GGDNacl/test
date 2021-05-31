@@ -31,7 +31,7 @@ jobs:
         run: sudo apt-get install libxml2-dev libxslt-dev python-dev
         
       - name: 'pip lxml'
-        run: pip install lxml==3.7.0
+        run: sudo pip3 install lxml==3.7.0
     
     
     #- name: 'pip PyEmail'

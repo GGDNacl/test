@@ -29,6 +29,12 @@ jobs:
         
     #  - name: 'pip lxml'
     #    run: conda install lxml==3.7.0
+    
+      - name: 'pip smtplib'
+        run: pip install smtplib
+        
+      - name: 'pip email'
+        run: pip install email
       
       - name: 'Working'
         run: bash ./colckin-bot/main.sh

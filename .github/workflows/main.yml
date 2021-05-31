@@ -30,6 +30,6 @@ jobs:
         run: pip install requests
         
       - name: 'Working'
-        run: python cd../clockin-bot/user.py
+        run: python cd../colckin-bot/user.py
         
 

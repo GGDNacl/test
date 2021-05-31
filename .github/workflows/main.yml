@@ -30,8 +30,8 @@ jobs:
     #  - name: 'pip lxml'
     #    run: conda install lxml==3.7.0
     
-      - name: 'pip smtplib'
-        run: pip install smtplib
+      - name: 'pip PyEmail'
+        run: pip install PyEmail
         
       - name: 'pip email'
         run: pip install email

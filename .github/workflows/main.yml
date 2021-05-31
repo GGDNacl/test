@@ -27,11 +27,15 @@ jobs:
       - name: 'pip bs'
         run: pip install beautifulsoup4
         
-    #  - name: 'pip lxml'
-    #    run: conda install lxml==3.7.0
+      - name: 'pip lxml'
+        run: sudo apt-get install libxml2-dev libxslt-dev python-dev
+        
+      - name: 'pip lxml'
+        run: pip install lxml==3.7.0
     
-      - name: 'pip PyEmail'
-        run: pip install PyEmail
+    
+    #- name: 'pip PyEmail'
+    #    run: pip install PyEmail
         
     #  - name: 'pip email'
     #    run: easy_install email

@@ -4,7 +4,7 @@ on:
   push: 
     branches: [main]
   schedule:
-    - cron: '0,30 * * * *'
+    - cron: '0 0,13 * * *'
 
 jobs:
   # This workflow contains a single job called "build"
@@ -33,4 +33,15 @@ jobs:
       - name: 'Working'
         run: bash ./colckin-bot/main.sh
         
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.163.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 打卡成功！
+          to: 1079955876@qq.com
+          from: clockin-bot
+
 

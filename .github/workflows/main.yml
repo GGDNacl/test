@@ -21,7 +21,12 @@ jobs:
         uses: actions/checkout@v1
         with:
           python-version: 3.7
+      - name: 'pip re'
+        run: pip install requests
         
+      - name: 'pip bs'
+        run: pip install beautifulsoup14
+      
       - name: 'Working'
         run: bash ./colckin-bot/main.sh
         

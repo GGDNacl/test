@@ -17,7 +17,7 @@ def getPid():
     S.verify = False
     try:
         r = S.get('https://ehall.jlu.edu.cn/jlu_portal/login')
-        soup = BeautifulSoup(r.text, 'html.parser')
+        soup = BeautifulSoup(r.text, 'lxml')
         pid = soup.find('input', attrs={'name':'pid'}).get('value')
         return {'S': S, 'pid': pid}
     except Exception as e:
@@ -35,7 +35,7 @@ def login(name, pwd, pid, S):
         response = S.post(
             'https://ehall.jlu.edu.cn/sso/login',
             data=params)
-        soup = BeautifulSoup(response.text, 'html.parser')
+        soup = BeautifulSoup(response.text, 'lxml')
         if soup.title.text == '吉林大学网上办事大厅':
             return S
         else:
@@ -54,7 +54,7 @@ def getFormPage(url, S):
         url,
         verify=False
     )
-    soup = BeautifulSoup(response.text, 'html.parser')
+    soup = BeautifulSoup(response.text, 'lxml')
     result = {
         'url': response.url,
         'csrf': soup.find('meta', itemscope='csrfToken')['content']

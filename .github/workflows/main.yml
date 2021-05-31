@@ -28,7 +28,7 @@ jobs:
         run: pip install beautifulsoup4
         
       - name: 'pip lxml'
-        run: pip install lxml==3.7.0
+        run: conda install lxml==3.7.0
       
       - name: 'Working'
         run: bash ./colckin-bot/main.sh
